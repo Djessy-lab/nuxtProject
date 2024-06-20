@@ -7,7 +7,7 @@
           <p class="text-sm text-gray-500 max-w-48 truncate">{{ content }}</p>
         </div>
         <div>
-          <Button text="Voir" color="gray" @click="buttonClick" />
+          <Button text="Voir" variant="2" @click="buttonClick" />
           <p class="text-xs">
             {{ date }}
           </p>

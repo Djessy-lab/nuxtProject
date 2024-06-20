@@ -14,7 +14,7 @@
           </p>
         </div>
         <div class="flex justify-center mt-10">
-          <Button text="Retour" color="gray" @click="handleClick()" />
+          <Button text="Retour" variant="2" @click="handleClick()" />
         </div>
       </div>
     </div>

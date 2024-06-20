@@ -1,6 +1,15 @@
 <template>
   <div>
-    <button :class="buttonClasses">
+    <button v-if="variant === '1'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+      {{ text }}
+    </button>
+    <button v-if="variant === '2'" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+      {{ text }}
+    </button>
+    <button v-if="variant === '3'" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+      {{ text }}
+    </button>
+    <button v-if="variant === '4'" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
       {{ text }}
     </button>
   </div>
@@ -13,23 +22,10 @@ export default {
       type: String,
       default: 'Button'
     },
-    color: {
+    variant: {
       type: String,
-      default: 'blue'
+      default: '1'
     }
   },
-  computed: {
-    buttonClasses() {
-      return [
-        `bg-${this.color}-500`,
-        `hover:bg-${this.color}-700`,
-        'text-white',
-        'font-bold',
-        'py-2',
-        'px-4',
-        'rounded'
-      ]
-    }
-  }
 }
 </script>

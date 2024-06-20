@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-center font-mono text-4xl mt-10">Vos rapports d'activité</h1>
     <div class="flex justify-center mt-36">
-      <Button text="Ajouter un rapport" color="green" @click="handleClick()" />
+      <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
     </div>
     <div class="grid grid-cols-4 gap-4 mt-20 p-10">
       <div v-for="(card, index) in cards">
