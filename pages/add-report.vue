@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button text="Retour" color="gray" @click="handleClick()" />
+    <Button text="Retour" variant="3" @click="handleClick()" />
   </div>
 </template>
 

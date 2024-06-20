@@ -4,7 +4,7 @@
     <div class="flex justify-center mt-36">
       <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
     </div>
-    <div class="grid grid-cols-4 gap-4 mt-20 p-10">
+    <div class="grid grid-cols-4 gap-4 max-lg:grid-cols-1 mt-20 p-10">
       <div v-for="(card, index) in cards">
         <Card :buttonClick="() => buttonClick(card)" :key="index" :name="card.name" :date="card.date"
           :content="card.content" />
