@@ -1,0 +1,47 @@
+<template>
+  <div>
+    <h1 class="text-center font-mono text-4xl mt-10">Vos rapports d'activité</h1>
+    <div class="flex justify-center mt-36">
+      <Button text="Ajouter un rapport" color="green" @click="handleClick()" />
+    </div>
+    <div class="grid grid-cols-4 gap-4 mt-20 p-10">
+      <div v-for="(card, index) in cards">
+        <Card :buttonClick="() => buttonClick(card)" :key="index" :name="card.name" :date="card.date"
+          :content="card.content" />
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      cards: [
+        { id: 1, name: 'Djessy C', date: '20/06/2024', content: 'Projet formulaires + début de projet nuxt' },
+        { id: 2, name: 'Nicolas H', date: '20/06/2024', content: 'Formation CliR' },
+        { id: 3, name: 'Nicolas F', date: '20/06/2024', content: 'Formation CliR' },
+        { id: 4, name: 'Pascal O', date: '20/06/2024', content: 'Supervision des petits jeunes' },
+        { id: 5, name: 'Faten M', date: '20/06/2024', content: 'Issues : 145, 456, 678, 987, 09, 567, 345, 0987, 43567, 267863' },
+        { id: 6, name: 'Thomas P', date: '20/06/2024', content: 'Projet formulaires' },
+        { id: 7, name: 'Nino L', date: '20/06/2024', content: "J'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeux" },
+        { id: 8, name: 'Alexandre S', date: '20/06/2024', content: 'Support/Carton de déménagement' },
+      ]
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$router.push('/add-report')
+    },
+    buttonClick(card) {
+      this.$router.push({
+        path: `/report/${card.id}`,
+        query: {
+          name: card.name,
+          date: card.date,
+          content: card.content
+        }
+      });
+    }
+  },
+}
+</script>
