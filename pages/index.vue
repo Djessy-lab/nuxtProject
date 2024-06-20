@@ -33,6 +33,7 @@ export default {
     if (name && date && content) {
       this.cards.push({ id: this.cards.length + 1, name, date, content });
     }
+    this.getReports();
   },
   watch: {
     cards(){
@@ -52,6 +53,11 @@ export default {
           content: card.content
         }
       });
+    },
+    async getReports(){
+      // const response = await fetch('https://192.168.1.21:3000/api/report');
+      // const data = await response.json();
+      // console.log(data);
     }
   },
 }
