@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="`bg-${color}-500 hover:bg-${color}-700 text-white font-bold py-2 px-4 rounded`">
+    <button :class="buttonClasses">
       {{ text }}
     </button>
   </div>
@@ -18,5 +18,18 @@ export default {
       default: 'blue'
     }
   },
+  computed: {
+    buttonClasses() {
+      return [
+        `bg-${this.color}-500`,
+        `hover:bg-${this.color}-700`,
+        'text-white',
+        'font-bold',
+        'py-2',
+        'px-4',
+        'rounded'
+      ]
+    }
+  }
 }
 </script>
