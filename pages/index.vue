@@ -5,7 +5,7 @@
       <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
     </div>
     <div class="grid grid-cols-4 gap-4 max-lg:grid-cols-1 mt-20 p-10">
-      <div v-for="(card, index) in cards">
+      <div v-for="(card, index) in cards" :key="index">
         <Card :buttonClick="() => buttonClick(card)" :key="index" :name="card.name" :date="card.date"
           :content="card.content" />
       </div>
@@ -26,6 +26,17 @@ export default {
         { id: 7, name: 'Nino L', date: '20/06/2024', content: "J'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeuxJ'ai fais tout le design pour les impôts en même temps que mes petites cartes de jeux" },
         { id: 8, name: 'Alexandre S', date: '20/06/2024', content: 'Support/Carton de déménagement' },
       ]
+    }
+  },
+  mounted() {
+    const { name, date, content } = this.$route.query;
+    if (name && date && content) {
+      this.cards.push({ id: this.cards.length + 1, name, date, content });
+    }
+  },
+  watch: {
+    cards(){
+      this.$router.push({ query: {} });
     }
   },
   methods: {
