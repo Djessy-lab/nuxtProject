@@ -13,6 +13,8 @@
   </div>
 </template>
 <script>
+import { createWebHistory } from 'vue-router';
+
 export default {
   data() {
     return {
@@ -55,9 +57,10 @@ export default {
       });
     },
     async getReports(){
-      // const response = await fetch('https://192.168.1.21:3000/api/report');
-      // const data = await response.json();
-      // console.log(data);
+      const response = await fetch('http://localhost:3000/api/reports');
+      const data = await response.json();
+      console.log(data);
+      // this.cards = data;
     }
   },
 }
