@@ -9,7 +9,7 @@
         <div>
           <Button text="Voir" variant="2" @click="buttonClick" />
           <p class="text-xs">
-            {{ date }}
+            {{ new Date(date).toLocaleDateString() }}
           </p>
         </div>
       </div>

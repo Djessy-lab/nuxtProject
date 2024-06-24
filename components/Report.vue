@@ -6,15 +6,15 @@
           <h1 class="text-2xl font-bold text-center mt-10">
             {{ name }}
           </h1>
-          <p class="font-thin text-sm text-center mt-4">Le {{ date }}</p>
+          <p class="font-thin text-sm text-center mt-4">Le {{ new Date(date).toLocaleDateString() }}</p>
         </div>
-        <div class="flex justify-center p-4 mx-auto mt-10 border rounded-md h-64 w-96">
-          <p>
-            {{ content }}
+        <div class="p-4 leading-8 mx-auto mt-10 border rounded-md h-64 w-96 bg-white">
+          <p v-for="(line, index) in content" :key="index">
+            {{ line }}
           </p>
         </div>
-        <div class="flex justify-center mt-10">
-          <Button text="Retour" variant="2" @click="handleClick()" />
+        <div class="flex justify-around mt-10">
+          <Button v-for="(button, index) in buttons" :key="index" :text="button.text" :variant="button.variant" @click="button.click" />
         </div>
       </div>
     </div>
@@ -34,18 +34,18 @@ export default {
       default: ""
     },
     content: {
-      type: String,
+      type: [String, Array],
       default: ""
     },
     date: {
       type: String,
       default: ""
     },
-  },
-  methods: {
-    handleClick() {
-      this.$router.push('/')
+    id: {
+      type: String,
+      default: ""
     },
+    buttons: { type: Array, default: () => [] }
   },
 }
 </script>
