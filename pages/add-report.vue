@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Button text="Retour" variant="3" @click="handleClick()" />
-    <ReportForm @report="handleNewReport" legend="Ajouter un rapport d'activités" />
+    <ReportForm :buttons="buttons" legend="Ajouter un rapport d'activités" />
   </div>
 </template>
 
@@ -10,7 +9,10 @@ export default {
   name: "add-report",
   data() {
     return {
-
+      buttons: [
+        { text: 'Annuler', variant: '5', click: () => this.handleClick() },
+        { text: 'Ajouter', variant: '3', click: (report) => this.handleNewReport(report) },
+      ]
     }
   },
   methods: {

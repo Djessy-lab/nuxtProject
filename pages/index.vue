@@ -1,15 +1,18 @@
 <template>
   <div>
     <h1
-      class='text-center text-7xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text font-mono'>
+      class='mt-10 text-center text-7xl font-thin  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
       Activity Reports</h1>
     <div class="flex justify-center mt-36">
       <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
     </div>
+    <div>
+      <Filters @filteredReports="updateFilteredReports" />
+    </div>
     <div class="grid grid-cols-4 gap-4 max-lg:grid-cols-1 mt-20 p-10">
-      <div v-for="(card, index) in sortedCards" :key="index">
-        <Card :buttonClick="() => buttonClick(card)" :key="index" :name="card.name" :date="card.createdAt"
-          :content="card.content" />
+      <div v-for="(report, index) in sortedReports" :key="index">
+        <Card :buttonClick="() => buttonClick(report)" :key="index" :name="report.name" :date="report.createdAt"
+          :content="report.content" />
       </div>
     </div>
   </div>
@@ -19,19 +22,20 @@
 export default {
   data() {
     return {
-      cards: []
+      reports: [],
+      filteredReports: []
     }
   },
   mounted() {
     this.getReports();
   },
   computed: {
-    sortedCards() {
-      return this.cards.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    sortedReports() {
+      return this.filteredReports.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     }
   },
   watch: {
-    cards() {
+    reports() {
       this.$router.push({ query: {} });
     }
   },
@@ -39,17 +43,21 @@ export default {
     handleClick() {
       this.$router.push('/add-report');
     },
-    buttonClick(card) {
+    buttonClick(report) {
       this.$router.push({
-        path: `/report/${card.id}`,
+        path: `/report/${report.id}`,
         query: {
-          id: card.id,
+          id: report.id,
         }
       });
     },
     async getReports() {
       const reports = await $fetch('/api/reports');
-      this.cards = reports;
+      this.reports = reports;
+      this.filteredReports = reports;
+    },
+    updateFilteredReports(filteredReports) {
+      this.filteredReports = filteredReports;
     }
   },
 }

@@ -28,7 +28,6 @@ export default {
         const report = await response.json()
         this.report = report
         this.reportContent = report.content.split('\n')
-        console.log(report);
       } catch (error) {
         console.error(error);
       }

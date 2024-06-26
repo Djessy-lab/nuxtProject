@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
-  const id = event.context.params?.id
+  const id = event.context.params?.id;
 
-  const body = await readBody(event)
+  const body = await readBody(event);
 
   const report = await prisma.report.update({
     where: {
@@ -10,7 +10,8 @@ export default defineEventHandler(async (event) => {
     data: {
       name: body.name,
       content: body.content,
+      createdAt: new Date(body.createdAt).toISOString()
     }
-  })
-  return report
-})
+  });
+  return report;
+});
