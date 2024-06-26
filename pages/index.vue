@@ -1,18 +1,20 @@
 <template>
   <div>
     <h1
-      class='mt-10 text-center text-7xl font-thin  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
+      class='mt-10 text-center text-7xl font-bold  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
       Activity Reports</h1>
-    <div class="flex justify-center mt-36">
+    <div class="flex justify-center mt-20">
       <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
     </div>
-    <div>
+    <div class="mt-40">
       <Filters @filteredReports="updateFilteredReports" />
     </div>
-    <div class="grid grid-cols-4 gap-4 max-lg:grid-cols-1 mt-20 p-10">
-      <div v-for="(report, index) in sortedReports" :key="index">
-        <Card :buttonClick="() => buttonClick(report)" :key="index" :name="report.name" :date="report.createdAt"
-          :content="report.content" />
+    <div class="flex justify-center">
+      <div class="grid grid-cols-2 gap-4 max-lg:grid-cols-1 mt-10 p-10 w-[80%]">
+        <div v-for="(report, index) in sortedReports" :key="index">
+          <Card :buttonClick="() => buttonClick(report)" :key="index" :name="report.name" :date="report.createdAt"
+            :content="report.content" />
+        </div>
       </div>
     </div>
   </div>

@@ -1,16 +1,16 @@
 <template>
   <div class="flex justify-center mt-10">
-    <div class="mr-10 border p-2 rounded">
+    <div class="mr-10 shadow p-2 rounded">
       <select v-model="selectedName" @change="applyFilters">
         <option :value="selectedName">Filtrer par nom</option>
         <option v-for="(name, index) in uniqueNames" :key="index">{{ name }}</option>
       </select>
     </div>
-    <div class="mr-10 border p-2 rounded">
+    <div class="mr-4 shadow p-2 rounded">
       <input type="date" v-model="selectedDate" @change="applyFilters">
     </div>
-    <div>
-      <Button v-if="selectedName || selectedDate" text="Effacer les filtres" variant="5"
+    <div class="shadow">
+      <Button v-if="selectedName || selectedDate" iconName="material-symbols:close-rounded" variant="6"
         @click="() => clearFilters()" />
     </div>
   </div>
