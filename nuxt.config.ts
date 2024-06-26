@@ -6,8 +6,8 @@ export default defineNuxtConfig({
     "/": { prerender: true },
     "/prerender-multiple/**": { prerender: true },
   },
-  alias: {
-    ".prisma/client/index-browser":
-      "./node_modules/@prisma/client/index-browser.js",
-  },
+    alias: {
+      ".prisma/client/index-browser":
+        "./node_modules/@prisma/client/index-browser.js",
+    },
 });
