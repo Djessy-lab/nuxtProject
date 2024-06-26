@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1
-      class='mt-10 text-center text-7xl font-normal  bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
+      class='mt-10 text-center text-7xl font-normal bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text'>
       Activity Reports</h1>
     <div class="flex justify-center mt-20">
       <Button text="Ajouter un rapport" variant="1" @click="handleClick()" />
