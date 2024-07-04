@@ -7,6 +7,5 @@ export default defineNuxtConfig({
     "/": { prerender: true },
     "/prerender-multiple/**": { prerender: true },
   },
-  nitro: { preset: "vercel-edge" },
   compatibilityDate: "2024-07-03",
 });
