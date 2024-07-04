@@ -7,6 +7,5 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/prerender-multiple/**': { prerender: true },
   },
-  ssr: false,
   compatibilityDate: "2024-07-03",
 })
